@@ -1,0 +1,77 @@
+:root {
+	--color-primary-1: rgb(68, 120, 192);
+	--color-primary-2: rgb(62, 117, 187);
+	--color-white: rgb(255, 255, 255);
+	--color-white-alpha-1: rgba(255, 255, 255, 0.356);
+	--color-white-alpha-2: rgba(255, 255, 255, 0.158);
+	--color-dark-alpha-1: rgba(0, 0, 0, 0.303);
+	--color-dark-alpha-2: rgba(0, 0, 0, 0.185);
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+img,
+span,
+button,
+input,
+a {
+	display: block;
+}
+input,
+button {
+	font: inherit;
+	color: inherit;
+	border: none;
+	background-color: inherit;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+img {
+	height: auto;
+}
+input {
+	width: 100%;
+}
+button {
+	cursor: pointer;
+}
+/* sub,sup{
+  font-size: 0.75rem;
+} */
+sub {
+	vertical-align: baseline;
+}
+sup {
+	vertical-align: top;
+}
+html {
+	font-family: var(--ff-nunito-sans);
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+	background-color: var(--color-primary-1);
+	height: 100vh;
+	width: 100%;
+}
+
+.ph-bold {
+	font-size: 24px;
+	margin-right: 10px;
+}
+
+.green {
+	color: green;
+}
