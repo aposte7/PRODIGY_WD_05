@@ -5,3 +5,8 @@ export function svgIcon(name, width, height, color) {
 	if (!icon) return ''
 	return icon.toSvg({ width, height, color })
 }
+
+export const addEventOnElements = (elements, eventType, callback) => {
+	for (const element of elements)
+		element.addEventListener(eventType, callback)
+}
