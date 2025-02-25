@@ -1,9 +1,12 @@
 :root {
 	--color-primary-1: rgb(68, 120, 192);
-	--color-primary-2: rgb(62, 117, 187);
+	--color-primary-2: rgb(64, 122, 198);
+	--color-secondary-1: rgb(31, 92, 178);
+	--color-secondary-2: rgb(60, 135, 248);
 	--color-white: rgb(255, 255, 255);
 	--color-white-alpha-1: rgba(255, 255, 255, 0.356);
 	--color-white-alpha-2: rgba(255, 255, 255, 0.158);
+	--color-white-alpha-3: rgba(199, 185, 185, 0.7);
 	--color-dark-alpha-1: rgba(0, 0, 0, 0.303);
 	--color-dark-alpha-2: rgba(0, 0, 0, 0.185);
 }
@@ -67,11 +70,97 @@ body {
 	width: 100%;
 }
 
-.ph-bold {
-	font-size: 24px;
-	margin-right: 10px;
+:focus-visible {
+	outline: 2px solid var(--color-white);
+	outline-offset: 2px;
 }
 
-.green {
-	color: green;
+#app {
+	padding: 4rem 5rem;
+}
+
+.nav_bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo_wrapper {
+	width: 20rem;
+}
+.logo_wrapper img {
+	width: 100%;
+}
+
+.search_icon {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.search_wrapper {
+	display: flex;
+	position: relative;
+}
+
+.search_input {
+	padding: 1.4rem 5rem 1.4rem 4rem;
+	font-size: 1.7rem;
+	width: 39rem;
+	border-radius: 100px;
+	border: none;
+	outline: none;
+	background-color: var(--color-secondary-1);
+	color: var(--color-white);
+	transition: all 0.2s;
+}
+
+.search_input::placeholder {
+	color: var(--color-white-alpha-3);
+}
+
+.search_input:hover {
+}
+
+.search_icon {
+	position: absolute;
+	padding-inline-end: 0.5rem;
+	width: fit-content;
+	top: 51%;
+	left: 7%;
+	transform: translate(-50%, -50%);
+}
+
+.location_btn {
+	background-color: var(--color-secondary-2);
+	padding: 1rem 2rem;
+	border-radius: 100px;
+	display: flex;
+	justify-content: space-between;
+	color: var(--color-white);
+	font-size: 2rem;
+	align-items: center;
+	width: 21rem;
+}
+.location_btn span {
+	display: inline-flex;
+	align-items: center;
+}
+
+.nav_action {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.open_search {
+	height: 4.5rem;
+	width: 4.5rem;
+	border-radius: 1000px;
+	background: #000;
+}
+.open_search[disabled] {
+	cursor: not-allowed;
 }
