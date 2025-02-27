@@ -278,7 +278,7 @@ body {
 .main_container {
 	display: flex;
 	justify-content: space-between;
-	gap: 2rem;
+	gap: 4rem;
 }
 
 .left_container {
@@ -300,8 +300,7 @@ body {
 	flex-direction: column;
 	gap: 1.5rem;
 	font-size: 2.3rem;
-	background-color: var(--color-primary-2);
-	filter: brightness(1.09);
+	background-color: rgba(62, 83, 157, 0.17);
 }
 
 .flex_between {
@@ -393,16 +392,18 @@ body {
 .right_container {
 	height: fit-content;
 	width: 100%;
+}
+.right_child_1 {
 	padding: 3rem;
 	border-radius: 22px;
-	background-color: #485995;
+	background-color: rgba(62, 82, 157, 0.133);
 }
 
-.right_container .card {
-	background-color: #5089e3;
+.right_child_1 .card {
+	background-color: rgba(255, 255, 255, 0.1);
 }
-.right_container .title {
-	padding-block: 1.5rem;
+.right_child_1 .title {
+	padding-block-end: 3rem;
 }
 
 .highlight-list {
@@ -475,7 +476,51 @@ body {
 .card_small .flex_between {
 	padding-block-start: 1rem;
 }
+.tody_weather_wrapper {
+	width: 100%;
+	display: flex;
+	justify-items: space-between;
+	gap: 2rem;
+	align-items: center;
+	flex-wrap: wrap;
+	padding-block: 1rem;
+}
 
+.right_child_2 {
+	padding-block: 1rem;
+	color: white;
+}
+.right_child_2 h3 {
+	font-size: 2.3rem;
+	color: white;
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 2rem;
+	background-color: rgba(42, 53, 93, 0.1);
+	position: relative;
+}
+
+.center:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+.center img {
+	width: 5rem;
+	height: 5rem;
+	filter: brightness(1.2);
+}
+.center_temp {
+	font-size: 1.8rem;
+}
+
+.today_time {
+	font-size: 1.9rem;
+	color: white;
+}
 @media (min-width: 768px) {
 	.highlight-list {
 		grid-template-columns: 1fr 1fr;

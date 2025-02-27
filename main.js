@@ -1,4 +1,4 @@
-import { svgIcon } from './src/helper'
+import { addEventOnElements, svgIcon } from './src/helper'
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
@@ -45,14 +45,13 @@ document.querySelector('#app').innerHTML = `
 						</div>
 
 						<div class="nav_action">
-							<a
-								href="#"
+							<button
 								class="open_search"
 								data-search-toggler
 								arial-label="open search"
 							>
 								${svgIcon('search', 22, 22, 'white')}
-							</a>
+							</button>
 
 							<button
 								class="location_btn"
@@ -73,68 +72,45 @@ document.querySelector('#app').innerHTML = `
 					</div>
 					<div class="main_container">
 						<div class="left_container">
-							<div data-current-weather></div>
+						<div data-current-weather></div>
 
 							<h2 class="title">5 Days Forcast</h2>
 
-							<div class="card card_2">
-								<div
-									class="card_item flex_between"
-									data-5-day-forecast
-								>
-									<div class="card_show">
-										<img
-											src="assets/images/weather_icons/11n.png"
-											width="200"
-											height="200"
-											alt="cloud image"
-										/>
-
-										<p data-week-degree>17°</p>
-									</div>
-
-									<p class="card_week-day" data-month-data>
-										26 feb
-									</p>
-									<p class="card_week-day" data-month-day>
-										wednesday
-									</p>
-								</div>
-								<div
-									class="card_item flex_between"
-									data-forecast-week
-								>
-									<div class="card_show">
-										<img
-											src="assets/images/weather_icons/11n.png"
-											width="200"
-											height="200"
-											alt="cloud image"
-										/>
-
-										<p data-week-degree>17°</p>
-									</div>
-
-									<p class="card_week-day" data-month-data>
-										26 feb
-									</p>
-									<p class="card_week-day" data-month-day>
-										wednesday
-									</p>
-								</div>
-							</div>
+              <div class="daily_forecast">
+              
+              </div>
 						</div>
 
 						<div class="right_container">
-							<h2 class="title">Today Highlights</h2>
+							<div class="right_child_1">
+                <h2 class="title">Today Highlights</h2>
 							<div data-highlights>
 								<div class="highlight-list"></div>
 							</div>
-						</div>
+              </div>
+					
+
+              <div class="right_child_2">
+                <h3>Today at</h3>
+                <div class="hourly-weather" data-hourly-weather>
+                  <div class="tody_weather_wrapper">
+                    </div>                 
+                </div>                           
+               </div>
+            </div>
 					</div>
 				</main>
 			</div>
   `
+
+export const toggleSearch = () => {
+	search_view.classList.toggle('active')
+}
+const search_view = document.querySelector('[data-search-view]')
+
+const searchToggler = document.querySelectorAll('[data-search-toggler]')
+
+addEventOnElements(searchToggler, 'click', toggleSearch)
 
 {
 	/* <dvi class="loader_wrapper">

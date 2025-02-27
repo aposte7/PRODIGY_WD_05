@@ -1,4 +1,5 @@
 'use strict'
+import { toggleSearch } from '../main.js'
 import { addEventOnElements, svgIcon } from './helper.js'
 import * as module from './module.js'
 import { fetchData, url } from './services/api.js'
@@ -9,17 +10,17 @@ import { fetchData, url } from './services/api.js'
  * @param {Function} callback callback function
  */
 
-const search_view = document.querySelector('[data-search-view]')
-
-const searchToggler = document.querySelectorAll('[data-search-toggler]')
-
-const toggleSearch = () => {
-	search_view.classList.toggle('active')
+{
+	/* <button
+class="open_search"
+data-search-toggler
+arial-label="open search"
+>
+${svgIcon('search', 22, 22, 'white')}
+</button> */
 }
-addEventOnElements(searchToggler, 'click', toggleSearch)
 
 // search integration
-
 const searchField = document.querySelector('.search_input')
 const searchResult = document.querySelector('[data-search-result]')
 
@@ -84,12 +85,13 @@ export const updateWeather = (lat, lon) => {
 		'[data-current-weather]'
 	)
 	const highlightSection = document.querySelector('[data-highlights]')
-	// const hourlySection = document.querySelector('[data-hourly-forecast]')
-	const forecastSection = document.querySelector('[data-5-day-forecast]')
+	const hourlySection = document.querySelector('.hourly-weather')
+	const forecastSection = document.querySelector('.daily_forecast')
 
+	console.log('hourlySection', hourlySection)
 	currentWeatherSection.innerHTML = ''
 	highlightSection.innerHTML = ''
-	// hourlySection.innerHTML = ''
+	hourlySection.innerHTML = ''
 	forecastSection.innerHTML = ''
 
 	if (window.location.hash == '#/current-location')
@@ -229,97 +231,97 @@ export const updateWeather = (lat, lon) => {
 
 		//24H forecast
 
-		// fetchData(url.forecast(lat, lon), (forecast) => {
-		// 	const {
-		// 		list: forecastList,
-		// 		city: { timezone },
-		// 	} = forecast
-		// 	hourlySection.innerHTML = `
-		//         <h2 class="title-2">Today at</h2>
-		//         <div class="slider-container">
-		//             <ul class="slider-list" data-temp></ul>
-		//             <ul class="slider-list" data-wind></ul>
-		//         </div>
-		//     `
-		// 	for (const [index, data] of forecastList.entries()) {
-		// 		if (index > 7) break
-		// 		const {
-		// 			dt: dateTimeUnix,
-		// 			main: { temp },
-		// 			weather,
-		// 			wind: { deg: windDirection, speed: windSpeed },
-		// 		} = data
-		// 		const [{ icon, description }] = weather
-		// 		const tempLi = document.createElement('li')
-		// 		tempLi.classList.add('slider-item')
-		// 		tempLi.innerHTML = `
-		//             <div class="card card-sm slider-card">
-		//                 <p class="body-3">${module.getTime(
-		// 					dateTimeUnix,
-		// 					timezone
-		// 				)}</p>
-		//                 <img src="./assest/images/weather_icons/${icon}.png" width="48" height="48" loading="lazy" alt="${description}" class="weather-icon" title="${description}">
-		//                 <p class="body-3">${temp}&deg;</p>
-		//             </div>
-		//             `
-		// 		hourlySection.querySelector('[data-temp]').appendChild(tempLi)
-		// 		const windLi = document.createElement('li')
-		// 		windLi.classList.add('slider-item')
-		// 		windLi.innerHTML = `
-		//             <div class="card card-sm slider-card">
-		//                 <p class="body-3">${module.getTime(
-		// 					dateTimeUnix,
-		// 					timezone
-		// 				)}</p>
-		//                 <img src="./assest/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform :rotate(${
-		// 					windDirection - 180
-		// 				}deg)">
-		//                 <p class="body-3">${parseInt(
-		// 					module.mps_to_kmh(windSpeed)
-		// 				)}Km/h</p>
-		//             </div>
-		//         `
-		// 		hourlySection.querySelector('[data-wind]').appendChild(windLi)
-		// 	}
+		fetchData(url.forecast(lat, lon), (forecast) => {
+			const {
+				list: forecastList,
+				city: { timezone },
+			} = forecast
 
-		// 	//5 day forecast
+			const tempLi = document.createElement('div')
+			tempLi.classList.add('tody_weather_wrapper')
 
-		// 	forecastSection.innerHTML = `
-		//         <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
-		//         <div class="card card-lg forecast-card">
-		//             <ul data-forecast-list></ul>
-		//         </div>
-		//     `
-		// 	for (let i = 7, len = forecastList.length; i < len; i += 8) {
-		// 		const {
-		// 			main: { temp_max },
-		// 			weather,
-		// 			dt_txt,
-		// 		} = forecastList[i]
-		// 		const [{ icon, description }] = weather
-		// 		const date = new Date(dt_txt)
-		// 		const li = document.createElement('li')
-		// 		li.classList.add('card-item')
-		// 		li.innerHTML = `
-		//             <div class="icon-wrapper">
-		//                 <img src="./assest/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon">
-		//                 <span class="span">
-		//                 <p class="title-2">${parseInt(temp_max)}&deg;</p>
-		//                 </span>
-		//             </div>
-		//             <p class="label-1">${date.getDate()} ${
-		// 			module.monthNames[date.getMonth()]
-		// 		}</p>
-		//             <p class="label-1">${
-		// 				module.weekDayNames[date.getUTCDay()]
-		// 			}</p>
-		//         `
-		// 		forecastSection
-		// 			.querySelector('[data-forecast-list]')
-		// 			.appendChild(li)
-		// 	}
-		loading.style.display = 'none'
-		// })
+			const windLi = document.createElement('div')
+			windLi.classList.add('tody_weather_wrapper')
+
+			for (const [index, data] of forecastList.entries()) {
+				if (index > 7) break
+				const {
+					dt: dateTimeUnix,
+					main: { temp },
+					weather,
+					wind: { deg: windDirection, speed: windSpeed },
+				} = data
+				const [{ icon, description }] = weather
+				const card1 = document.createElement('div')
+				card1.classList.add('card', 'center')
+				card1.innerHTML = `
+                  		<p class="today_time">${module.getTime(
+							dateTimeUnix,
+							timezone
+						)}</p>
+          
+               			<img src="./assets/images/weather_icons/${icon}.png" width="48" height="48" loading="lazy" alt="${description}" class="weather-icon" title="${description}">
+                   
+                  		<p class="center_temp">${temp}&deg;<sub>c</sub></p>
+		            `
+				tempLi.appendChild(card1)
+
+				const card2 = document.createElement('div')
+				card2.classList.add('card', 'center')
+				card2.innerHTML = `
+		                <p class="today_time">${module.getTime(
+							dateTimeUnix,
+							timezone
+						)}</p>
+		                <img src="./assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform :rotate(${
+							windDirection - 180
+						}deg)">
+		                <p class="center_temp">${parseInt(
+							module.mps_to_kmh(windSpeed)
+						)}Km/h</p>
+		        `
+				windLi.appendChild(card2)
+			}
+			hourlySection.appendChild(tempLi)
+			hourlySection.appendChild(windLi)
+
+			//5 day forecast
+
+			const cardContainer = document.createElement('div')
+			cardContainer.classList.add('card', 'card_2')
+
+			forecastSection.appendChild(cardContainer)
+
+			for (let i = 7, len = forecastList.length; i < len; i += 8) {
+				const {
+					main: { temp_max },
+					weather,
+					dt_txt,
+				} = forecastList[i]
+				const [{ icon, description }] = weather
+				const date = new Date(dt_txt)
+				const div = document.createElement('div')
+				div.classList.add('card_item', 'flex_between')
+				div.innerHTML = `
+		        <div class="card_item flex_between" data-5-day-forecast>
+					<div class="card_show">
+						<img src="./assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon">
+
+						<p data-week-degree>${parseInt(temp_max)}&deg;</p>
+					</div>
+
+					<p class="card_week-day" data-month-data>
+						${date.getDate()} ${module.monthNames[date.getMonth()]}
+					</p>
+					<p class="card_week-day" data-month-day>
+						${module.weekDayNames[date.getUTCDay()]}
+					</p>
+				</div>
+		        `
+				forecastSection.querySelector('.card_2').appendChild(div)
+			}
+			loading.style.display = 'none'
+		})
 	})
 }
 // export const error404 = () => {
