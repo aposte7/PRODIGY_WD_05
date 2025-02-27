@@ -23,9 +23,9 @@ document.querySelector('#app').innerHTML = `
 						        </button>
                 </div>
 
-                <ul class="search-result" data-search-result>
-
-                </ul>
+                <div class="search_result_wrapper" data-search-result>
+                
+                </div>
             </div>
 
             <div class="nav_action">
@@ -49,7 +49,7 @@ document.querySelector('#app').innerHTML = `
         <div class="main_container">
         
           <div class="left_container">
-              <div data-forecast-today class="card card_today">
+              <div data-current-weather class="card card_today">
                 <p class="card_time">Now</p>
              
                 <div class="flex_between card_row">
@@ -77,7 +77,7 @@ document.querySelector('#app').innerHTML = `
               <h2 class="title">5 Days Forcast</h2>
             
               <div class="card card_2">
-                  <div class="card_item flex_between" data-forecast-week>
+                  <div class="card_item flex_between" data-5-day-forecast>
                     <div class="card_show">
                       <img src="assets/images/weather_icons/11n.png" width="200" height="200" alt="cloud image" />
 
@@ -103,9 +103,9 @@ document.querySelector('#app').innerHTML = `
 
           <div class="right_container">
             <h2 class="title">Today Highlights</h2>
-            <div class="highlight-list">
+            <div data-highlights class="highlight-list">
                 <div class="card highlight-list-1">
-                <p data-weather-condition class="flex_between card_header">
+                <p class="flex_between card_header">
                   <span>Air Quality Index</span>
                   <span>Good</span>
                 </p>              
@@ -184,3 +184,20 @@ const searchToggler = document.querySelectorAll('[data-search-toggler]')
 addEventOnElements(searchToggler, 'click', () => {
 	search_view.classList.toggle('active')
 })
+
+{
+	/* <dvi class="loader_wrapper">
+<div class="loader"></div>
+</dvi> 
+
+ <li>
+    <a href="#/weather?lat=${lat}&lon=${lon}" class="search_item" aria-lable="${name} weather" data-search-toggler>
+      <span>${name}</span>
+      <span>${state || ''} ${country}</span>
+    </a>
+  </li>
+
+
+
+*/
+}
