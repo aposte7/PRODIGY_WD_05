@@ -2,10 +2,18 @@ export const getDate = (dateUnix, timezone) => {
 	const date = new Date((dateUnix + timezone) * 1000)
 	return date.toLocaleDateString('en-US', {
 		weekday: 'long',
-		month: 'long',
+		month: 'short',
 		day: 'numeric',
 	})
 }
+
+// export const getDate = (dateUnix, timezone) => {
+// 	const date = new Date((dateUnix + timezone) * 1000)
+// 	const weekDayName = weekDayNames[date.getUTCDay()]
+// 	const monthName = monthNames[date.getUTCMonth()]
+
+// 	return `${weekDayName} ${date.getUTCDate()} ${monthName}`
+// }
 
 export const getTime = (timeUnix, timezone) => {
 	const date = new Date((timeUnix + timezone) * 1000)
@@ -26,28 +34,26 @@ export const aqiText = {
 	4: { level: 'Poor', message: 'Air quality is unhealthy.' },
 	5: { level: 'Very Poor', message: 'Air quality is very unhealthy.' },
 }
-
-export const monthNames = [
-	'January',
-	'February',
-	'March',
-	'April',
-	'May',
-	'June',
-	'July',
-	'August',
-	'September',
-	'October',
-	'November',
-	'December',
-]
-
 export const weekDayNames = [
-	'Sunday',
 	'Monday',
 	'Tuesday',
 	'Wednesday',
 	'Thursday',
 	'Friday',
 	'Saturday',
+	'Sunday',
+]
+export const monthNames = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec',
 ]

@@ -391,6 +391,7 @@ body {
 	background-color: #14409f;
 }
 .right_container {
+	height: fit-content;
 	width: 100%;
 	padding: 3rem;
 	border-radius: 22px;
@@ -463,8 +464,13 @@ body {
 	font-size: 2.5rem;
 }
 
-.card_small p {
+.card_small {
+	padding: 2rem;
+}
+
+.card_small .text_sm {
 	padding-block-end: 1rem;
+	margin-bottom: 0.5rem;
 }
 .card_small .flex_between {
 	padding-block-start: 1rem;
@@ -510,7 +516,9 @@ body {
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
+
 .loader_wrapper {
+	display: none;
 	place-content: center;
 	width: 100%;
 	height: 50rem;
