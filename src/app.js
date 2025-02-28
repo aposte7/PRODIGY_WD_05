@@ -30,7 +30,7 @@ let searchTimeOutDuration = 500
 searchField.addEventListener('input', () => {
 	searchTimeOut ?? clearTimeout(searchTimeOut)
 	if (!searchField.value) {
-		searchResult.classList.remove('active')
+		searchField.classList.remove('active')
 		searchResult.innerHTML = ''
 		searchField.classList.remove('searching')
 	} else {
@@ -41,7 +41,8 @@ searchField.addEventListener('input', () => {
 		searchTimeOut = setTimeout(() => {
 			fetchData(url.geo(searchField.value), (locations) => {
 				searchField.classList.remove('searching')
-				searchResult.classList.add('active')
+				searchField.classList.add('active')
+
 				searchResult.innerHTML = `
                     <ul class="search-result" data-search-list>
 					
@@ -64,8 +65,10 @@ searchField.addEventListener('input', () => {
 					)
 				}
 				addEventOnElements(items, 'click', () => {
-					toggleSearch()
 					searchResult.classList.remove('active')
+					searchField.classList.remove('active')
+					searchResult.innerHTML = ''
+					searchField.value = ''
 				})
 			})
 		}, searchTimeOutDuration)
@@ -153,10 +156,12 @@ export const updateWeather = (lat, lon) => {
 			card.classList.add('highlight-list')
 			card.innerHTML = `
 				<div class="card highlight-list-1">
-					<p class="flex_between card_header">
+					<h3 class="flex_between card_header">
 						<span>Air Quality Index</span>
-						<span title="${module.aqiText[aqi].message}">${module.aqiText[aqi].level}</span>
-					</p>
+						<span class="card_header-con" title="${module.aqiText[aqi].message}">${
+				module.aqiText[aqi].level
+			}</span>
+					</h3>
 					<div class="card_detail flex_between">
 						<p class="detail_flex">
 							<span class="text_xs">PM2.5</span>
@@ -176,10 +181,11 @@ export const updateWeather = (lat, lon) => {
 						</p>
 					</div>
 				</div>
+
 				<div class="card highlight-list-2">
-					<p data-weather-condition class="flex_between card_header">
+					<h3 data-weather-condition class="flex_between card_header">
 						<span>Sunrise & Sunset</span>
-					</p>
+					</h3>
 					<div class="card_detail card2_detail flex_between">
 						<div class="detail_item">
 							<span>${svgIcon('sun', 34, 34, 'white')}</span>

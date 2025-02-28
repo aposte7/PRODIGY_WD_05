@@ -1,8 +1,8 @@
 :root {
 	--color-primary-1: rgb(68, 120, 192);
-	--color-primary-2: rgb(64, 122, 198);
-	--color-secondary-1: rgb(31, 92, 178);
-	--color-secondary-2: rgb(60, 135, 248);
+	--color-primary-2: rgb(205, 227, 252);
+	--color-secondary-1: rgb(56, 114, 192);
+	--color-secondary-2: rgb(92, 156, 251);
 	--color-white: rgb(255, 255, 255);
 	--color-white-alpha-1: rgba(255, 255, 255, 0.356);
 	--color-white-alpha-2: rgba(255, 255, 255, 0.158);
@@ -143,7 +143,7 @@ body {
 .search_wrapper {
 	display: flex;
 	position: relative;
-	border-block-end: 1px solid #143f9e;
+	border-block-end: 1px solid var(--color-secondary-2);
 }
 
 .search_input {
@@ -181,7 +181,8 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: #485995;
+	border-top: 1px var(--color-secondary-2) solid;
+	background-color: var(--color-secondary-1);
 	padding-block: 1rem;
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
@@ -190,7 +191,7 @@ body {
 	padding: 0.5rem 2rem;
 }
 .search_item:hover {
-	background-color: #465fb74f;
+	background-color: var(--color-primary-1);
 }
 
 .search_item span:first-child {
@@ -198,7 +199,7 @@ body {
 	font-size: 1.7rem;
 }
 .search_item span:last-child {
-	color: rgb(186, 182, 182);
+	color: #9fbad8;
 	font-size: 1.5rem;
 }
 .location_btn {
@@ -229,7 +230,7 @@ body {
 	height: 4.5rem;
 	width: 4.5rem;
 	border-radius: 1000px;
-	background: #000;
+	background: var(--color-secondary-1);
 }
 .open_search[disabled] {
 	cursor: not-allowed;
@@ -240,8 +241,6 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	/* width: 100vh; */
-	/* width: 100svh; */
 	background-color: var(--color-secondary-1);
 	color: var(--on-surface);
 	-webkit-clip-path: circle(3% at calc(100% - 301px) 5%);
@@ -286,13 +285,12 @@ body {
 	flex-direction: column;
 	gap: 2rem;
 	font-size: 1.4rem;
-	color: rgb(241, 255, 255);
 }
 
 .card {
 	padding: 3rem;
 	border-radius: 20px;
-	color: rgb(216, 220, 224);
+	color: rgb(255, 255, 255);
 }
 
 .left_container .card {
@@ -310,7 +308,7 @@ body {
 	width: 100%;
 }
 .card .flex_between {
-	color: white;
+	color: var(--color-white);
 }
 
 .degree {
@@ -331,9 +329,9 @@ body {
 	object-fit: cover;
 }
 .card_description {
-	font-size: 1.6rem;
+	font-size: 1.7rem;
 	padding-block-end: 1.3rem;
-	border-bottom: 1px rgba(226, 221, 212, 0.717) solid;
+	border-bottom: 1px rgba(226, 221, 212, 0.317) solid;
 }
 .card_day,
 .card_location {
@@ -342,13 +340,13 @@ body {
 	align-items: center;
 	justify-content: flex-start;
 	gap: 1.5rem;
+	color: var(--color-primary-2);
 }
 
 .card_2 {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	color: rgba(163, 174, 174, 0.115);
 }
 .card_item {
 	width: 100%;
@@ -358,7 +356,7 @@ body {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	color: white;
+	color: var(--color-white);
 }
 .card_show img {
 	width: 4rem;
@@ -368,7 +366,7 @@ body {
 	font-size: 2.5rem;
 }
 .card_week-day {
-	color: rgb(216, 216, 211);
+	color: var(--color-primary-2);
 	font-size: 1.8rem;
 }
 
@@ -380,14 +378,11 @@ body {
 .card_wrapper {
 	padding: 3rem;
 	border-radius: 20px;
-	background-color: #214fb2;
-	color: rgb(193, 199, 203);
 }
 
 .card_wrapper {
 	padding: 2rem;
 	border-radius: 10px;
-	background-color: #14409f;
 }
 .right_container {
 	height: fit-content;
@@ -420,17 +415,17 @@ body {
 }
 
 .card_header {
-	padding-block-end: 2rem;
+	margin-block-end: 3rem;
 	width: 100%;
 }
 .card_header span:first-child {
-	font-size: 1.7rem;
+	font-size: 1.9rem;
 }
 
-.card_header span:last-child {
+.card_header-con {
 	font-size: 1.6rem;
 	padding: 0.4rem 1.5rem;
-	background-color: rgb(16, 129, 92);
+	background-color: var(--color-primary-1);
 	border-radius: 20px;
 	text-align: center;
 }
@@ -444,7 +439,7 @@ body {
 .text_xs {
 	font-size: 1.5rem;
 	margin-block: 0.3rem;
-	color: #d7cdcd;
+	color: var(--color-primary-2);
 }
 .detail_flex span:last-child {
 	font-size: 2.6rem;
@@ -470,8 +465,8 @@ body {
 }
 
 .card_small .text_sm {
-	padding-block-end: 1rem;
-	margin-bottom: 0.5rem;
+	font-size: 1.8rem;
+	margin-bottom: 2rem;
 }
 .card_small .flex_between {
 	padding-block-start: 1rem;
@@ -515,6 +510,7 @@ body {
 }
 .center_temp {
 	font-size: 1.8rem;
+	color: var(--color-primary-2);
 }
 
 .today_time {
@@ -540,6 +536,11 @@ body {
 	.search_input {
 		border-radius: 100px;
 		background-color: var(--color-secondary-1);
+	}
+	.search_input.active {
+		border-radius: 0;
+		border-top-right-radius: 20px;
+		border-top-left-radius: 20px;
 	}
 
 	.search_icon {
