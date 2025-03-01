@@ -207,17 +207,17 @@
 			`,s.appendChild(P)}),U(B.forecast(v,j),g=>{const{list:w,city:{timezone:M}}=g,b=document.createElement("div");b.classList.add("tody_weather_wrapper");const A=document.createElement("div");A.classList.add("tody_weather_wrapper");for(const[P,E]of w.entries()){if(P>7)break;const{dt:C,main:{temp:D},weather:I,wind:{deg:F,speed:R}}=E,[{icon:S,description:z}]=I,H=document.createElement("div");H.classList.add("card","center"),H.innerHTML=`
                   		<p class="today_time">${Y(C,M)}</p>
           
-               			<img src="assets/images/weather_icons/${S}.png" width="48" height="48" loading="lazy" alt="${z}" class="weather-icon" title="${z}">
+               			<img src="/assets/images/weather_icons/${S}.png" width="48" height="48" loading="lazy" alt="${z}" class="weather-icon" title="${z}">
                    
                   		<p class="center_temp">${D}&deg;<sub>c</sub></p>
 		            `,b.appendChild(H);const G=document.createElement("div");G.classList.add("card","center"),G.innerHTML=`
 		                <p class="today_time">${Y(C,M)}</p>
-		                <img src="assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform :rotate(${F-180}deg)">
+		                <img src="/assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform :rotate(${F-180}deg)">
 		                <p class="center_temp">${parseInt(pe(R))}Km/h</p>
 		        `,A.appendChild(G)}e.appendChild(b),e.appendChild(A);const O=document.createElement("div");O.classList.add("card","card_2"),n.appendChild(O);for(let P=7,E=w.length;P<E;P+=8){const{main:{temp_max:C},weather:D,dt_txt:I}=w[P],[{icon:F,description:R}]=D,S=new Date(I),z=document.createElement("div");z.classList.add("card_item","flex_between"),z.innerHTML=`
 		        <div class="card_item flex_between" data-5-day-forecast>
 					<div class="card_show">
-						<img src="assets/images/weather_icons/${F}.png" width="36" height="36" alt="${R}" class="weather-icon">
+						<img src="/assets/images/weather_icons/${F}.png" width="36" height="36" alt="${R}" class="weather-icon">
 
 						<p data-week-degree>${parseInt(C)}&deg;</p>
 					</div>
