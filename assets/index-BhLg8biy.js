@@ -7,7 +7,7 @@
 				<div class="light_bg"></div>
 				<header class="header">
 					<div class="nav_bar">
-						<a class="logo_wrapper">
+						<a href="#/approximatelocation" class="logo_wrapper">
 							<img
 								src="assets/images/logo.png"
 								alt="wether logo"
@@ -54,7 +54,7 @@
 								${T("search",22,22,"white")}
 							</button>
 
-							<button
+							<a href="#/current-location"
 								class="location_btn"
 								data-current-location-btn
 							>
@@ -63,7 +63,7 @@
 								</span>
 
 								<span class="location_txt">current location</span>
-							</button>
+							</a>
 						</div>
 					</div>
 				</header>
@@ -229,4 +229,4 @@
 						${ye[S.getUTCDay()]}
 					</p>
 				</div>
-		        `,n.querySelector(".card_2").appendChild(z)}Z.style.display="none"})})},fe=async()=>{try{let t=(await(await fetch("https://api.ipify.org/?format=json")).json()).ip,e=await(await fetch(`https://ipinfo.io/${t}?token=c177813f87d9fa`)).json();const[n,r]=e.loc.split(",");J(`lat=${n}`,`lon=${r}`),window.location.hash="#/approximatelocation"}catch(v){console.error("Error fetching location data:",v)}},me=()=>{window.navigator.geolocation.getCurrentPosition(v=>{const{latitude:j,longitude:t}=v.coords;J(`lat=${j}`,`lon=${t}`)},v=>{window.location.hash="#/approximatelocation"})},ve=v=>J(...v.split("&")),_=new Map([["/current-location",me],["/weather",ve],["/approximatelocation",fe]]),te=()=>{const v=window.location.hash.slice(1),[j,t]=v.includes?v.split("?"):[v];_.get(j)?_.get(j)(t):error404()};window.addEventListener("hashchange",te);window.addEventListener("load",()=>{window.location.hash?te():window.location.hash="#/current-location"});
+		        `,n.querySelector(".card_2").appendChild(z)}Z.style.display="none"})})},fe=async()=>{try{let t=(await(await fetch("https://api.ipify.org/?format=json")).json()).ip,e=await(await fetch(`https://ipinfo.io/${t}?token=c177813f87d9fa`)).json();const[n,r]=e.loc.split(",");J(`lat=${n}`,`lon=${r}`),window.location.hash="#/approximatelocation"}catch(v){console.error("Error fetching location data:",v)}},me=()=>{console.log("hello"),window.navigator.geolocation.getCurrentPosition(v=>{const{latitude:j,longitude:t}=v.coords;J(`lat=${j}`,`lon=${t}`)},v=>{window.location.hash="#/approximatelocation"})},ve=v=>J(...v.split("&")),_=new Map([["/current-location",me],["/weather",ve],["/approximatelocation",fe]]),te=()=>{const v=window.location.hash.slice(1),[j,t]=v.includes?v.split("?"):[v];_.get(j)?_.get(j)(t):error404()};window.addEventListener("hashchange",te);window.addEventListener("load",()=>{window.location.hash?te():window.location.hash="#/current-location"});
