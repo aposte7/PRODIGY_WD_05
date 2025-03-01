@@ -123,7 +123,7 @@ export const updateWeather = (lat, lon) => {
 				<p data-today-degree class="degree">
 					<span>${parseInt(temp)}&deg;</span> c
 				</p>
-				<img data-forecast-image src="../assets/images/weather_icons/${icon}.png" alt="${description}"/>
+				<img data-forecast-image src="./assets/images/weather_icons/${icon}.png" alt="${description}"/>
 			</div>
 			<p class="card_description">${description}</p>
 			<p data-forecast-day class="card_day">
