@@ -77,10 +77,11 @@ searchField.addEventListener('input', () => {
 
 const loading = document.querySelector('[data-loading]')
 const currentLocationBtn = document.querySelector('[data-current-location-btn]')
-// const errorContent = document.querySelector('[data-error-content]')
+const mainContainer = document.querySelector('.main_container')
 
 export const updateWeather = (lat, lon) => {
 	loading.style.display = 'grid'
+	mainContainer.style.display = 'none'
 
 	// errorContent.style.display = 'none'
 
@@ -327,9 +328,7 @@ export const updateWeather = (lat, lon) => {
 				forecastSection.querySelector('.card_2').appendChild(div)
 			}
 			loading.style.display = 'none'
+			mainContainer.style.display = 'flex'
 		})
 	})
 }
-// export const error404 = () => {
-// 	errorContent.style.display = 'flex'
-// }
