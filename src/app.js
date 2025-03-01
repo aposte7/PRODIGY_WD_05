@@ -266,7 +266,7 @@ export const updateWeather = (lat, lon) => {
 							timezone
 						)}</p>
           
-               			<img src="./assets/images/weather_icons/${icon}.png" width="48" height="48" loading="lazy" alt="${description}" class="weather-icon" title="${description}">
+               			<img src="assets/images/weather_icons/${icon}.png" width="48" height="48" loading="lazy" alt="${description}" class="weather-icon" title="${description}">
                    
                   		<p class="center_temp">${temp}&deg;<sub>c</sub></p>
 		            `
@@ -279,7 +279,7 @@ export const updateWeather = (lat, lon) => {
 							dateTimeUnix,
 							timezone
 						)}</p>
-		                <img src="./assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform :rotate(${
+		                <img src="assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform :rotate(${
 							windDirection - 180
 						}deg)">
 		                <p class="center_temp">${parseInt(
@@ -311,7 +311,7 @@ export const updateWeather = (lat, lon) => {
 				div.innerHTML = `
 		        <div class="card_item flex_between" data-5-day-forecast>
 					<div class="card_show">
-						<img src="./assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon">
+						<img src="assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon">
 
 						<p data-week-degree>${parseInt(temp_max)}&deg;</p>
 					</div>

@@ -8,7 +8,7 @@ document.querySelector('#app').innerHTML = `
 					<div class="nav_bar">
 						<a class="logo_wrapper">
 							<img
-								src="./assets/images/logo.png"
+								src="/assets/images/logo.png"
 								alt="wether logo"
 							/>
 						</a>
