@@ -6,7 +6,7 @@ document.querySelector('#app').innerHTML = `
 				<div class="light_bg"></div>
 				<header class="header">
 					<div class="nav_bar">
-						<a class="logo_wrapper">
+						<a href="#/approximatelocation" class="logo_wrapper">
 							<img
 								src="assets/images/logo.png"
 								alt="wether logo"
@@ -53,7 +53,7 @@ document.querySelector('#app').innerHTML = `
 								${svgIcon('search', 22, 22, 'white')}
 							</button>
 
-							<button
+							<a href="#/current-location"
 								class="location_btn"
 								data-current-location-btn
 							>
@@ -62,7 +62,7 @@ document.querySelector('#app').innerHTML = `
 								</span>
 
 								<span class="location_txt">current location</span>
-							</button>
+							</a>
 						</div>
 					</div>
 				</header>
@@ -112,20 +112,3 @@ const search_view = document.querySelector('[data-search-view]')
 const searchToggler = document.querySelectorAll('[data-search-toggler]')
 
 addEventOnElements(searchToggler, 'click', toggleSearch)
-
-{
-	/* <dvi class="loader_wrapper">
-<div class="loader"></div>
-</dvi> 
-
- <li>
-    <a href="#/weather?lat=${lat}&lon=${lon}" class="search_item" aria-lable="${name} weather" data-search-toggler>
-      <span>${name}</span>
-      <span>${state || ''} ${country}</span>
-    </a>
-  </li>
-
-
-
-*/
-}
