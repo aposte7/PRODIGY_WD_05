@@ -22,4 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-public./assets/images/Thumbs.db
+publicassets/images/Thumbs.db
+public/assets/images/Thumbs.db
