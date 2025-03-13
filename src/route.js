@@ -20,8 +20,6 @@ const approximateLocation = async () => {
 	}
 }
 const currentLocation = () => {
-	console.log('hello')
-
 	window.navigator.geolocation.getCurrentPosition(
 		(res) => {
 			const { latitude, longitude } = res.coords
